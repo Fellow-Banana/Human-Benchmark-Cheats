@@ -5,7 +5,6 @@ const buttons = document.querySelectorAll('.css-de05nr.e19owgy710');
 
 // Loop through each button and assign an ID based on its text content
 buttons.forEach((button, index) => {
-    // Assign unique IDs based on the text of the button
     if (button.textContent.trim().toUpperCase() === 'SEEN') {
         button.id = 'seen'; // Assign 'seen' to the SEEN button
     } else if (button.textContent.trim().toUpperCase() === 'NEW') {
@@ -13,7 +12,7 @@ buttons.forEach((button, index) => {
     }
 });
 
-let words = []; // Add your known words here
+let words = [];
 let shouldStop = false
 
 function loopWords() {
@@ -34,10 +33,8 @@ function loopWords() {
     }
 }
 
-// Run the loop every 0.5 seconds
 let intervalID = setInterval(loopWords, 50); // 50ms = 0.05 seconds or 20 words per second
 
-// To stop the loop immediately, set the flag to true
 function stopLoop() {
     shouldStop = true;
     clearInterval(intervalID); // Clear the interval to stop further executions
