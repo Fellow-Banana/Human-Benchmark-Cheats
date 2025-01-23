@@ -1,41 +1,36 @@
 // Verbal Memory
 // To stop simply type stopLoop() into the console
 
+let waitTime = 50; //adjust if needed but going too fast may be an issue
+
 const buttons = document.querySelectorAll('.css-de05nr.e19owgy710');
 
-// Loop through each button and assign an ID based on its text content
-buttons.forEach((button, index) => {
-    if (button.textContent.trim().toUpperCase() === 'SEEN') {
-        button.id = 'seen'; // Assign 'seen' to the SEEN button
-    } else if (button.textContent.trim().toUpperCase() === 'NEW') {
-        button.id = 'new'; // Assign 'new' to the NEW button
-    }
+// Assign IDs to buttons based on their text content
+buttons.forEach(button => {
+    const text = button.textContent.trim().toUpperCase();
+    if (text === 'SEEN') button.id = 'seen';
+    else if (text === 'NEW') button.id = 'new';
 });
 
 let words = [];
-let shouldStop = false
+let shouldStop = false;
 
 function loopWords() {
-    // Stop if Necessary
     if (shouldStop) return;
     
-    // Get the word from the div
-    let currentWord = document.querySelector('.word').textContent;
+    const currentWord = document.querySelector('.word').textContent;
 
-    // Check if the word is in the list 'words'
     if (words.includes(currentWord)) {
-        // If it is, click the 'seen' button
         document.getElementById('seen').click();
     } else {
-        // If not, click the 'new' button and add it to the 'words' list
         document.getElementById('new').click();
-        words.push(currentWord); // Add the new word to the list
+        words.push(currentWord); // Add new word to the list
     }
 }
 
-let intervalID = setInterval(loopWords, 50); // 50ms = 0.05 seconds or 20 words per second
+let intervalID = setInterval(loopWords, waitTime); // 50ms = 20 words per second
 
 function stopLoop() {
     shouldStop = true;
-    clearInterval(intervalID); // Clear the interval to stop further executions
+    clearInterval(intervalID); // Stop the loop
 }
