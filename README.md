@@ -21,3 +21,7 @@ To use any of these cheats, follow these steps:
   Copy and paste the following code into the console:
   ```javascript
   // Insert reaction time cheat code here
+
+## Authors
+
+- [@Fellow-Banana](https://www.github.com/Fellow-Banana)
