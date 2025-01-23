@@ -4,7 +4,7 @@
 
 let numButtons = 4;
 let running = true;
-let waitTime = 10; // This is wait time, currently set to 10ms
+let waitTime = 0; // Adjust wait time for button presses
 
 const clickSequence = async () => {
   while (running) {
@@ -17,11 +17,9 @@ const clickSequence = async () => {
         console.log(`Cell #${i} not found`);
       }
       
-      // Change waitTime to adjust the time between button clicks
       await new Promise(resolve => setTimeout(resolve, waitTime));
     }
   
-    // Click the "Continue" button after each round
     const continueButton = document.querySelector('.css-de05nr.e19owgy710');
     if (continueButton) {
       continueButton.click();
@@ -30,17 +28,16 @@ const clickSequence = async () => {
       console.log('Continue button not found');
     }
   
-    // Change waitTime to adjust the time between button clicks
     await new Promise(resolve => setTimeout(resolve, waitTime));
     numButtons++;
 
-    if (numButtons === 41) {stopLoop()}
+    if (numButtons === 41) stopLoop();
   }
-}
+};
 
-function stopLoop() {
+const stopLoop = () => {
   running = false;
-}
+};
 
 // Run the click sequence function
 clickSequence();
