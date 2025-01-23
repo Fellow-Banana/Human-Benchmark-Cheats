@@ -1,44 +1,42 @@
 // Number Memory
-// For some reason the website really doesnt like it when using Dispatch events to type the numbers
-// And it causes issues with the submit button Instead after time is up press Ctrl + V then enter, number will be automatically copied
+// Issues with dispatch events break the submit button will fix soon
+// For now run the script then start the test, after the time is up each number will be copied into your clipboard
+// type stopLoop() to stop the loop
 
-let prevNumber = NaN;
+let prevNumber = '';
+let intervalID;
 
-function copyNumberToClipboard() {
+const copyNumberToClipboard = () => {
     const bigNumberElement = document.querySelector('.big-number');
-    
-    if (bigNumberElement && bigNumberElement.textContent.trim()) {
-        const number = bigNumberElement.textContent.trim();
-        
-        // Use the Clipboard API to copy the number to clipboard
-        navigator.clipboard.writeText(number).then(() => {
-            console.log('Number copied to clipboard:', number);
-        }).catch((error) => {
-            console.error('Error copying number to clipboard:', error);
-        });
+    const number = bigNumberElement?.textContent.trim();
+
+    if (number) {
+        navigator.clipboard.writeText(number)
+            .then(() => console.log('Number copied to clipboard:', number))
+            .catch((error) => console.error('Error copying number:', error));
     } else {
         console.log('No number found to copy.');
     }
-}
+};
 
-function processNumber() {
-    const intervalID = setInterval(() => {
+const processNumber = () => {
+    intervalID = setInterval(() => {
         const bigNumberElement = document.querySelector('.big-number');
+        const number = bigNumberElement?.textContent.trim();
 
-        // Check if the element has text content
-        if (bigNumberElement && bigNumberElement.textContent.trim()) {
-            const number = bigNumberElement.textContent.trim();
-            if (number !== prevNumber) {
-                console.log('Number found:', number);
-                
-                // Copy the new number to clipboard
-                copyNumberToClipboard();
-                
-                prevNumber = number; // Update the global prevNumber
-            }
+        if (number && number !== prevNumber) {
+            console.log('Number found:', number);
+            copyNumberToClipboard();
+            prevNumber = number;
         }
-    }, 1000); // Check every 1 second
-}
+    }, 1000); // Check every second
+};
+
+// Stops the interval loop
+const stopLoop = () => {
+    clearInterval(intervalID);
+    console.log('Number processing stopped.');
+};
 
 // Start the process
 processNumber();
