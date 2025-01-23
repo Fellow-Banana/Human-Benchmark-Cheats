@@ -1,6 +1,10 @@
+// Chimp Test
+// Paste this in after clicking start test
+// Lower or Raise wait time to change the speed of button presses
+
 let numButtons = 4;
 let running = true;
-let waitTime = 10;
+let waitTime = 10; // This is wait time, currently set to 10ms
 
 const clickSequence = async () => {
   while (running) {
