@@ -1,9 +1,6 @@
 // Number Memory
-// For some reason the website really doesnt like it
-// When using Dispatch events to type the numbers
-// And it causes issues with the submit button
-// Just paste the number it prints instead
-// It will automatically put it in your clipboard
+// For some reason the website really doesnt like it when using Dispatch events to type the numbers
+// And it causes issues with the submit button Instead after time is up press Ctrl + V then enter, number will be automatically copied
 
 let prevNumber = NaN;
 
