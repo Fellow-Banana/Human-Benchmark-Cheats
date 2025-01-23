@@ -1,8 +1,7 @@
 // Verbal Memory
 // To stop simply type stopLoop() into the console
 
-let waitTime = 50; //adjust if needed but going too fast may be an issue
-
+let waitTime = 0; // Adjust if going too fast
 const buttons = document.querySelectorAll('.css-de05nr.e19owgy710');
 
 // Assign IDs to buttons based on their text content
