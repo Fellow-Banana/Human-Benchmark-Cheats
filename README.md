@@ -13,14 +13,13 @@ To use any of these cheats, follow these steps:
 2. Press `F12` to open the Developer Tools (or `Ctrl + Shift + I` / `Cmd + Option + I` on Mac).
 3. Go to the **Console** tab.
 4. Copy and paste the desired script into the console.
-5. Follow the instructions displayed in the console for each script to start running.
+5. Follow the instructions at the start of the script for it to function
 
 ### Example: 
+![](https://i.imgur.com/Cj5ykDQ.png)
 
-- **Cheat for Reaction Time Test:**
-  Copy and paste the following code into the console:
-  ```javascript
-  // Insert reaction time cheat code here
+## Result:
+![](https://i.imgur.com/Z9oUeHb.png)
 
 ## Authors
 
